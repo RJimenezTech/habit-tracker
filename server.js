@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 // const session = require("express-session");
-// const exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 const routes = require("./controllers/");
 require("dotenv").config();
 const app = express();
@@ -22,14 +22,15 @@ const sequelize = require("./config/connection");
 // };
 
 // app.use(session(sess));
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 app.use(routes);
 
