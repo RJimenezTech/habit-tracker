@@ -46,6 +46,7 @@ router.get("/:date", (req, res) => {
 });
 
 // find a date that has a specific habit
+// expects: "/api/dates/20220531/5"
 router.get("/:date/:habit", (req, res) => {
   Date.findAll({
     where: {
