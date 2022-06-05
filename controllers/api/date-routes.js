@@ -78,4 +78,61 @@ router.get("/:date/:habit", (req, res) => {
     });
 });
 
+// create a new date
+// expects
+// {
+// "date": 20220531,
+// "habit_id": 21,
+// "user_id": 11
+// }
+router.post(
+  "/",
+  //  withAuth,
+  (req, res) => {
+    Date.create({
+      date: req.body.date,
+      // user_id: req.session.user_id,
+      habit_id: req.body.habit_id,
+      user_id: req.body.user_id,
+    })
+      .then((dbDateData) => res.json(dbDateData))
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  }
+);
+
+// delete date record
+// {
+//   "date": 20220531,
+//   "habit_id": 5,
+//   "user_id": 2
+// }
+router.delete(
+  "/",
+  // withAuth,
+  (req, res) => {
+    Date.destroy({
+      where: {
+        date: req.body.date,
+        habit_id: req.body.habit_id,
+        // user_id: req.session.user_id,
+        user_id: req.body.user_id,
+      },
+    })
+      .then((dbDateData) => {
+        if (!dbDateData) {
+          res.status(404).json({ message: "No date found with this id!" });
+          return;
+        }
+        res.json(dbDateData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+);
+
 module.exports = router;
