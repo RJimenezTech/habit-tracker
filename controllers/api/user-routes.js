@@ -25,10 +25,10 @@ router.get("/:id", (req, res) => {
       {
         model: Habit,
         attributes: ["id", "description", "created_at"],
-        include: {
-          model: Date,
-          attributes: ["id", "date", "habit_id"],
-        },
+        // include: {
+        //   model: Date,
+        //   attributes: ["id", "date", "habit_id"],
+        // },
       },
     ],
   })

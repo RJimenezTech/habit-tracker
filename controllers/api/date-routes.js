@@ -5,12 +5,17 @@ const { Habit, User, Date } = require("../../models");
 // get all dates
 router.get("/", (req, res) => {
   Date.findAll({
-    attributes: ["id", "date", "habit_id", "user_id"],
+    attributes: [
+      "id",
+      "date",
+      "habit_id",
+      // "user_id"
+    ],
     include: [
-      {
-        model: User,
-        attributes: ["id", "username"],
-      },
+      // {
+      //   model: User,
+      //   attributes: ["id", "username"],
+      // },
       {
         model: Habit,
         attributes: ["id", "description"],
@@ -30,7 +35,11 @@ router.get("/:date", (req, res) => {
     where: {
       date: req.params.date,
     },
-    attributes: ["date", "habit_id", "user_id"],
+    attributes: [
+      "date",
+      "habit_id",
+      // "user_id"
+    ],
   })
     .then((dbDateData) => {
       if (!dbDateData) {
@@ -53,16 +62,20 @@ router.get("/:date/:habit", (req, res) => {
       date: req.params.date,
       habit_id: req.params.habit,
     },
-    attributes: ["date", "habit_id", "user_id"],
+    attributes: [
+      "date",
+      "habit_id",
+      // "user_id"
+    ],
     include: [
       {
         model: Habit,
         attributes: ["description"],
       },
-      {
-        model: User,
-        attribute: ["username"],
-      },
+      // {
+      //   model: User,
+      //   attribute: ["username"],
+      // },
     ],
   })
     .then((dbDateData) => {
@@ -93,7 +106,7 @@ router.post(
       date: req.body.date,
       // user_id: req.session.user_id,
       habit_id: req.body.habit_id,
-      user_id: req.body.user_id,
+      // user_id: req.body.user_id,
     })
       .then((dbDateData) => res.json(dbDateData))
       .catch((err) => {
@@ -118,7 +131,7 @@ router.delete(
         date: req.body.date,
         habit_id: req.body.habit_id,
         // user_id: req.session.user_id,
-        user_id: req.body.user_id,
+        // user_id: req.body.user_id,
       },
     })
       .then((dbDateData) => {

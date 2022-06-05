@@ -31,10 +31,10 @@ router.get("/:id", (req, res) => {
       {
         model: User,
         attributes: ["id", "username"],
-        include: {
-          model: Date,
-          attributes: ["id", "date", "habit_id"],
-        },
+        // include: {
+        //   model: Date,
+        //   attributes: ["id", "date", "habit_id"],
+        // },
       },
     ],
   })

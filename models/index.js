@@ -14,13 +14,13 @@ Date.belongsTo(Habit, {
   foreignKey: "id",
 });
 
-Date.belongsTo(User, {
-  foreignKey: "id",
-});
+// Date.belongsTo(User, {
+//   foreignKey: "id",
+// });
 
-User.hasMany(Date, {
-  foreignKey: "user_id",
-});
+// User.hasMany(Date, {
+//   foreignKey: "user_id",
+// });
 
 Habit.hasMany(Date, {
   foreignKey: "habit_id",
