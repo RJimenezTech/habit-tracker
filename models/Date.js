@@ -9,6 +9,7 @@ Date.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true
     },
     date: {
       // format id is "YYYYMMDD"
