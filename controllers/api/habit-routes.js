@@ -51,4 +51,22 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// create a new habit
+router.post(
+  "/",
+  // withAuth,
+  (req, res) => {
+    Habit.create({
+      description: req.body.description,
+      // user_id: req.session.user_id,
+      user_id: req.body.user_id,
+    })
+      .then((dbHabitData) => res.json(dbHabitData))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+);
+
 module.exports = router;
