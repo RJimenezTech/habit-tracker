@@ -3,6 +3,35 @@
     <h3 class="is-size-4">Add a new habit below to begin!</h3>
     <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
 </section>
+<div class="modal-is-active addHabit center">
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">New habit</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <form>
+                <div class="enter-habit">
+                    <p class="is-size-4 mb-5">Enter your habit below.</p>
+                    <input class="input mb-5" id="new-habit" type="text" placeholder="Today I will...">
+                    <p class="is-size-4 mb-5" for="">Select a habit category.</p>
+                </div>
+                <div class="category-select select is -edium">
+                    <select name="habit-category" id="habitCategory">
+                        <option value="">N/A</option>
+                        <option value="mental">Mental</option>
+                        <option value="physical">Physical</option>
+                        <option value="productivity"> Productivity</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-info saveHabit">Save</button>
+            <button class="button">Cancel</button>
+        </footer>
+    </div>
+</div>
 <nav class="has-text-centered is-flex flex-direction-row is-justify-content-space-between is-align-items-center">
     <div class="column">
         <i class="is-clickable homeBtn fa-solid fa-house-user is-size-3"></i>
