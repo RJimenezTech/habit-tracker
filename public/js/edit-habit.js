@@ -9,7 +9,7 @@ async function editFormHandler(event) {
 
   const id = document
     .querySelector("input[name=habit-description]")
-    .getAttribute("data-id");
+    .getAttribute("data-habit-id");
 
   const response = await fetch(`/api/habits/${id}`, {
     method: "PUT",
