@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.addBtn:hover {
+    transform: scale(1.15);
+    transition: 0.3s;
+}
+
+.historyBtn:hover {
+    transform: scale(1.15);
+    transition: 0.3s;
+}
+
+.homeBtn:hover {
+    transform: scale(1.15);
+    transition: 0.3s;
+}
