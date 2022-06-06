@@ -5,7 +5,7 @@ const { Habit, User, Date } = require("../../models");
 // get all user
 router.get("/", (req, res) => {
   Habit.findAll({
-    attributes: ["id", "description", "created_at"],
+    attributes: ["id", "description", "category", "created_at"],
     include: [
       {
         model: User,
@@ -26,7 +26,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "description", "created_at"],
+    attributes: ["id", "description", "category", "created_at"],
     include: [
       {
         model: User,
@@ -55,6 +55,7 @@ router.get("/:id", (req, res) => {
 // expects:
 // {
 // 	"description": "find dog",
+//  "category": "mental",
 // 	"user_id": 11
 // }
 router.post(
@@ -63,6 +64,7 @@ router.post(
   (req, res) => {
     Habit.create({
       description: req.body.description,
+      category: req.body.category,
       // user_id: req.session.user_id,
       user_id: req.body.user_id,
     })
@@ -82,6 +84,35 @@ router.put(
     Habit.update(
       {
         description: req.body.description,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    )
+      .then((dbHabitData) => {
+        if (!dbHabitData) {
+          res.status(404).json({ message: "No habit found with this id" });
+          return;
+        }
+        res.json(dbHabitData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
+);
+
+// update category only if logged in though
+router.put(
+  "/:id",
+  // withAuth,
+  (req, res) => {
+    Habit.update(
+      {
+        category: req.body.category,
       },
       {
         where: {
