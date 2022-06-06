@@ -17,7 +17,14 @@
         <div
             class="m-5 is-flex flex-direction-row is-align-items-center is-justify-content-space-between is-align-content-center">
             <h2 class="is-size-2">habitual</h2>
-            <button class="button is-size-5"><a class="has-text-dark" href="/login">Login</a><i class="fa-regular fa-circle-user pl-2"></i></button>
+            <button class="button is-size-5">
+                {{#if loggedIn}}
+                <a class="has-text-dark" href="/">Logout</a>
+                {{else}}
+                <a class="has-text-dark" href="/login">Login</a>
+                {{/if}}
+                <i class="fa-regular fa-circle-user pl-2"></i>
+            </button>
         </div>
     </header>
     <main>
@@ -29,6 +36,9 @@
             <i class="fa-regular fa-folders"></i>
         </div>
     </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>

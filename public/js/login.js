@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/"); // will need to redirect to dashboard
+      document.location.replace("/dashboard"); // will need to redirect to dashboard
     } else {
       alert(response.statusText);
     }
@@ -49,7 +49,7 @@ async function signupFormHandler(event) {
         }),
         headers: { "Content-Type": "application/json" },
       });
-      document.location.replace("/");
+      document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }
