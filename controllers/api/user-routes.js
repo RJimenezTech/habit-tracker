@@ -1,12 +1,21 @@
 const router = require("express").Router();
 // const { response } = require("express");
 const { User, Habit, Date } = require("../../models");
-const sendWelcomeEmail = require("../../public/js/email");
+const {
+  sendWelcomeEmail,
+  sendUserDailyEmail,
+} = require("../../public/js/emails");
 
 // get all user
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Habit,
+        attributes: ["id", "description"],
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -87,6 +96,7 @@ router.post("/", (req, res) => {
         res.json(dbUserData);
       });
       sendWelcomeEmail(dbUserData.email);
+      // sendUserDailyEmail();
     })
     .catch((err) => {
       console.log(err);
