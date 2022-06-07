@@ -1,6 +1,7 @@
 const router = require("express").Router();
 // const { response } = require("express");
 const { User, Habit, Date } = require("../../models");
+const sendWelcomeEmail = require("../../public/js/email");
 
 // get all user
 router.get("/", (req, res) => {
@@ -85,6 +86,7 @@ router.post("/", (req, res) => {
         req.session.loggedIn = true;
         res.json(dbUserData);
       });
+      sendWelcomeEmail(dbUserData.email);
     })
     .catch((err) => {
       console.log(err);
