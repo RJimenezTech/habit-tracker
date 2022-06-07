@@ -2,17 +2,15 @@ async function newFormHandler(event) {
   event.preventDefault();
 
   const description = document.querySelector("#new-habit").value.trim();
-  console.log(document.session);
   const category = document.querySelector("#habitCategory").value.trim();
-  const user_id = 11; // need to extract user_id from session
-  console.log(user_id);
+  console.log(description, category);
 
   const response = await fetch(`/api/habits`, {
     method: "POST",
     body: JSON.stringify({
       description,
       category,
-      user_id,
+      //   user_id,
     }),
     headers: {
       "Content-Type": "application/json",

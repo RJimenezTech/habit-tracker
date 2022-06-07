@@ -25,10 +25,6 @@ router.get("/:id", (req, res) => {
       {
         model: Habit,
         attributes: ["id", "description", "created_at"],
-        // include: {
-        //   model: Date,
-        //   attributes: ["id", "date", "habit_id"],
-        // },
       },
     ],
   })
@@ -52,7 +48,7 @@ router.post("/login", (req, res) => {
   User.findOne({
     where: {
       email: req.body.email,
-    }
+    },
   }).then((dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that email address!" });
@@ -60,20 +56,18 @@ router.post("/login", (req, res) => {
     }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
-    console.log(dbUserData);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
       return;
     }
 
-    // req.session.save(() => {
-    //   req.session.user_id = dbUserData.id;
-    //   req.session.username = dbUserData.username;
-    //   req.session.loggedIn = true;
-
-    // });
-    res.json({ user: dbUserData, message: "You are now logged in!" });
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+      res.json({ user: dbUserData, message: "You are now logged in!" });
+    });
   });
 });
 
@@ -85,12 +79,12 @@ router.post("/", (req, res) => {
     password: req.body.password,
   })
     .then((dbUserData) => {
-      // req.session.save(() => {
-      //   req.session.user_id = dbUserData.id;
-      //   req.session.username = dbUserData.username;
-      //   req.session.loggedIn = true;
-      // });
-      res.json(dbUserData);
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+        res.json(dbUserData);
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -102,7 +96,7 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
-    // individualHooks: true,
+    individualHooks: true,
     where: {
       id: req.params.id,
     },

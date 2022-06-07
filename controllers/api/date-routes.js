@@ -1,21 +1,12 @@
 const router = require("express").Router();
-// const { response } = require("express");
 const { Habit, User, Date } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // get all dates
 router.get("/", (req, res) => {
   Date.findAll({
-    attributes: [
-      "id",
-      "date",
-      "habit_id",
-      // "user_id"
-    ],
+    attributes: ["id", "date", "habit_id"],
     include: [
-      // {
-      //   model: User,
-      //   attributes: ["id", "username"],
-      // },
       {
         model: Habit,
         attributes: ["id", "description"],
@@ -35,11 +26,7 @@ router.get("/:date", (req, res) => {
     where: {
       date: req.params.date,
     },
-    attributes: [
-      "date",
-      "habit_id",
-      // "user_id"
-    ],
+    attributes: ["date", "habit_id"],
   })
     .then((dbDateData) => {
       if (!dbDateData) {
@@ -72,10 +59,6 @@ router.get("/:date/:habit", (req, res) => {
         model: Habit,
         attributes: ["description"],
       },
-      // {
-      //   model: User,
-      //   attribute: ["username"],
-      // },
     ],
   })
     .then((dbDateData) => {
@@ -98,23 +81,17 @@ router.get("/:date/:habit", (req, res) => {
 // "habit_id": 21,
 // "user_id": 11
 // }
-router.post(
-  "/",
-  //  withAuth,
-  (req, res) => {
-    Date.create({
-      date: req.body.date,
-      // user_id: req.session.user_id,
-      habit_id: req.body.habit_id,
-      // user_id: req.body.user_id,
-    })
-      .then((dbDateData) => res.json(dbDateData))
-      .catch((err) => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  }
-);
+router.post("/", withAuth, (req, res) => {
+  Date.create({
+    date: req.body.date,
+    habit_id: req.body.habit_id,
+  })
+    .then((dbDateData) => res.json(dbDateData))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
 
 // delete date record
 // {
@@ -122,30 +99,24 @@ router.post(
 //   "habit_id": 5,
 //   "user_id": 2
 // }
-router.delete(
-  "/",
-  // withAuth,
-  (req, res) => {
-    Date.destroy({
-      where: {
-        date: req.body.date,
-        habit_id: req.body.habit_id,
-        // user_id: req.session.user_id,
-        // user_id: req.body.user_id,
-      },
+router.delete("/", withAuth, (req, res) => {
+  Date.destroy({
+    where: {
+      date: req.body.date,
+      habit_id: req.body.habit_id,
+    },
+  })
+    .then((dbDateData) => {
+      if (!dbDateData) {
+        res.status(404).json({ message: "No date found with this id!" });
+        return;
+      }
+      res.json(dbDateData);
     })
-      .then((dbDateData) => {
-        if (!dbDateData) {
-          res.status(404).json({ message: "No date found with this id!" });
-          return;
-        }
-        res.json(dbDateData);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
