@@ -47,6 +47,27 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// // get all habits by user ID
+// router.get("/byuser/:id", withAuth, (req, res) => {
+//   Habit.findAll({
+//     where: {
+//       user_id: req.session.user_id,
+//     },
+//     attributes: ["id", "description", "category"],
+//   })
+//     .then((dbHabitData) => {
+//       if (!dbHabitData) {
+//         res.status(404).json({ message: "No habit found with this id" });
+//         return;
+//       }
+//       res.json(dbHabitData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
 // create a new habit
 // expects:
 // {

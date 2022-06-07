@@ -1,5 +1,21 @@
+{{#if user_habits.length}}
+<article>
+  <h2>Your Habits:</h2>
+  <ol>
+    {{#each user_habits as |habit|}}
+    <li>
+      {{> weekdisplay habit}}
+    </li>
+    {{/each}}
+  </ol>
+</article>
+{{/if}}
+
+
 <section class="column has-text-centered">
+  {{#unless loggedIn}}
   <img class="image mx-auto" src="images/healthy-lifestyle.png" alt="" />
+  {{/unless}}
   <h3 class="is-size-4">Add a new habit below to begin!</h3>
   <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
 </section>
@@ -13,7 +29,13 @@
       <form class="new-habit-form">
         <div class="enter-habit">
           <p class="is-size-4 mb-5">Enter your habit below.</p>
-          <input class="input is-medium mb-5" id="new-habit" type="text" placeholder="Today I will..." required/>
+          <input
+            class="input is-medium mb-5"
+            id="new-habit"
+            type="text"
+            placeholder="Today I will..."
+            required
+          />
           <p class="is-size-4 mb-5" for="">Select a habit category.</p>
         </div>
         <div class="category-select select is-medium">

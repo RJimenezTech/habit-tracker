@@ -10,12 +10,12 @@ const {
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
-    include: [
-      {
-        model: Habit,
-        attributes: ["id", "description"],
-      },
-    ],
+    // include: [
+    //   {
+    //     model: Habit,
+    //     attributes: ["id", "description"],
+    //   },
+    // ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -53,7 +53,6 @@ router.get("/:id", (req, res) => {
 
 // login
 router.post("/login", (req, res) => {
-  console.log(req.body.email, req.body.password);
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
@@ -104,13 +103,12 @@ router.post("/", (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
-  }
-  else {
+  } else {
     res.status(404).end();
   }
 });
