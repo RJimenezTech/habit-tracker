@@ -3,7 +3,7 @@
   <h3 class="is-size-4">Add a new habit below to begin!</h3>
   <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
 </section>
-<div class="modal-is-active addHabit center">
+<div class="modal addHabit center">
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">New habit</p>
@@ -13,12 +13,7 @@
       <form class="new-habit-form">
         <div class="enter-habit">
           <p class="is-size-4 mb-5">Enter your habit below.</p>
-          <input
-            class="input is-medium mb-5"
-            id="new-habit"
-            type="text"
-            placeholder="Today I will..."
-          />
+          <input class="input is-medium mb-5" id="new-habit" type="text" placeholder="Today I will..." required/>
           <p class="is-size-4 mb-5" for="">Select a habit category.</p>
         </div>
         <div class="category-select select is-medium">
@@ -34,6 +29,7 @@
     <footer class="modal-card-foot">
       <button class="button is-info saveHabit">Save</button>
       <button class="button">Cancel</button>
+      <p class="confirm hidden is-size-5"></p>
     </footer>
   </div>
 </div>
@@ -53,3 +49,4 @@
   </div>
 </nav>
 <script src="/js/new-habit.js"></script>
+<script src="/js/dashboard.js"></script>
