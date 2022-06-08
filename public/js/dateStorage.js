@@ -1,6 +1,6 @@
 function setCookie(cname, cvalue) {
   const d = new Date();
-  d.setTime(d.getTime() + 1 * 24 * 60 * 60 * 1000);
+  d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
   let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -45,25 +45,29 @@ function setHabitCookies() {
 function updateHabitCookie(event) {
   let date_id = event.target.getAttribute("data-date-id");
   let habit_id = event.target.getAttribute("data-habit-id");
-  console.log(habit_id);
   let current = getCookie(habit_id);
+  console.log(habit_id);
+
   console.log(current);
   if (current == "undefined") {
     setCookie(habit_id, date_id);
-    return;
+    location.reload();
   } else {
     let thisCookie = getCookie(habit_id).split(",");
     console.log(thisCookie);
     if (thisCookie.includes(date_id)) {
       const index = thisCookie.indexOf(date_id);
-      thisCookie.splice(index, date_id);
+      thisCookie.splice(index, 1);
       thisCookie.join(",");
+      console.log(thisCookie);
       setCookie(habit_id, thisCookie);
+      location.reload();
     } else {
       thisCookie.push(date_id);
       thisCookie.toString();
-      // date_id = current + "," + date_id;
+      console.log(thisCookie);
       setCookie(habit_id, thisCookie);
+      location.reload();
     }
   }
 }
