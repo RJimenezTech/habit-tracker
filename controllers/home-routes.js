@@ -7,7 +7,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render('dashboard', {
+    loggedIn: req.session.loggedIn
+});
 });
 
 router.get("/dashboard", (req, res) => {
