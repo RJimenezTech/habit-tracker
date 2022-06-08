@@ -1,48 +1,46 @@
 {{#if user_habits.length}}
-    <div class="habitweek mx-5 my-6 is-size-3 is-mobile" data-habit-id="{{id}}">
-                <div class="columns is-multiline is-mobile has-shadow rounded has-text-centered is-align-items-center has-background-info-light" style="outline:solid;">
-                    <div class="column habit is-one-third">
-                    <div class="icon-text icon-habit">
-
-                        <span class="is-size-5-mobile">Your Habits</span>
-                      </div>
-                      </div>
-                    <div class="column day1" style="outline:solid;">
-                        S
-                    </div>
-                    <div class="column day2" style="border-right:solid;">
-                        M
-                    </div>
-                    <div class="column day3" style="border-right:solid;">
-                       T
-                    </div>
-                    <div class="column day4" style="border-right:solid;">
-                        W
-                    </div>
-                    <div class="column day5" style="border-right:solid;">
-                        Th
-                    </div>
-                    <div class="column day6" style="border-right:solid;">
-                        F
-                    </div>
-                    <div class="column day7" style="border-right:solid;">
-                        S
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="habitweek m-5 is-size-6 is-mobile" data-habit-id="{{id}}">
+  <div class="columns is-multiline is-mobile has-shadow rounded has-text-centered is-align-items-center has-background-info-light"
+    style="outline:solid;">
+    <div class="column habit is-one-third">
+      <span class="is-size-5-mobile">Your Habits</span>
     </div>
-    {{#each user_habits as |habit|}}
-    <article>
-      {{> weekdisplay habit}}
-    </article>
-    {{/each}}
-    {{else}}
-    <section class="column has-text-centered">
-      <img class="image mx-auto" src="images/healthy-lifestyle.png" alt="" />
-      <h3 class="is-size-4">Add a new habit below to begin!</h3>
-      <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
-    </section>
+  <div class="column day1" style="outline:solid;">
+    S 
+  </div>
+  <div class="column day2" style="border-right:solid;">
+    M
+  </div>
+  <div class="column day3" style="border-right:solid;">
+    T
+  </div>
+  <div class="column day4" style="border-right:solid;">
+    W
+  </div>
+  <div class="column day5" style="border-right:solid;">
+    Th
+  </div>
+  <div class="column day6" style="border-right:solid;">
+    F
+  </div>
+  <div class="column day7" style="border-left:solid;">
+    S
+  </div>
+</div>
+</div>
+</div>
+</div>
+{{#each user_habits as |habit|}}
+<article>
+  {{> weekdisplay habit}}
+</article>
+{{/each}}
+{{else}}
+<section class="column has-text-centered">
+  <img class="image mx-auto" src="images/healthy-lifestyle.png" alt="" />
+  <h3 class="is-size-4">Add a new habit below to begin!</h3>
+  <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
+</section>
 {{/if}}
 
 <div class="modal has-shadow addHabit center">
@@ -55,13 +53,7 @@
       <form class="new-habit-form">
         <div class="enter-habit">
           <p class="is-size-4 mb-5">Enter your habit below.</p>
-          <input
-            class="input is-medium mb-5"
-            id="new-habit"
-            type="text"
-            placeholder="Today I will..."
-            required
-          />
+          <input class="input is-medium mb-5" id="new-habit" type="text" placeholder="Today I will..." required />
           <p class="is-size-4 mb-5" for="">Select a habit category.</p>
         </div>
         <div class="category-select select is-medium">
@@ -81,16 +73,12 @@
     </footer>
   </div>
 </div>
-<nav
-  class="has-text-centered is-flex flex-direction-row is-justify-content-space-between is-align-items-center"
->
+<nav class="has-text-centered is-flex flex-direction-row is-justify-content-space-between is-align-items-center">
   <div class="column">
     <i class="is-clickable homeBtn fa-solid fa-house-user is-size-3"></i>
     <p class="has-text-weight-bold">Home</p>
   </div>
-  <i
-    class="addBtn is-clickable has-text-info column fa-solid fa-circle-plus is-size-1 mb-6"
-  ></i>
+  <i class="addBtn is-clickable has-text-info column fa-solid fa-circle-plus is-size-1 mb-6"></i>
   <div class="column">
     <i class="is-clickable historyBtn fa-solid fa-book is-size-3"></i>
     <p class="has-text-weight-bold">History</p>
