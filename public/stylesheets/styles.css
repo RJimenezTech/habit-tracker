@@ -45,6 +45,6 @@ html {
   padding: 10px;
 }
 
-.habitweek {
-  margin: 25px;
+.date-box:hover {
+  border: 1px solid hsl(0, 0%, 48%) !important;
 }

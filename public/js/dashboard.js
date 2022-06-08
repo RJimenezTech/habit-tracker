@@ -1,4 +1,5 @@
 const openModal = document.querySelector('.addBtn');
+const dateBox = document.querySelectorAll('div.date-box');
 
 openModal.addEventListener('click', () => {
     const addHabit = document.querySelector('.addHabit');
@@ -17,3 +18,10 @@ openModal.addEventListener('click', () => {
 
     });
 });
+
+dateBox.forEach((box) => {
+    box.addEventListener('click', () => {
+        box.classList.toggle('has-background-danger');
+        box.classList.toggle('has-background-grey-light');
+    });
+})

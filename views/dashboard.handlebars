@@ -1,6 +1,6 @@
 {{#if user_habits.length}}
     <div class="habitweek is-size-3 is-mobile is-family-sans-serif" data-habit-id="{{id}}">
-                <div class="columns is-align-items-center has-background-primary-light">
+                <div class="columns has-text-centered is-align-items-center has-background-primary-light">
                     <div class="column habit is-one-third">
                     <div class="icon-text icon-habit">
 
@@ -37,17 +37,14 @@
       {{> weekdisplay habit}}
     </article>
     {{/each}}
-
+    {{else}}
+    <section class="column has-text-centered">
+      <img class="image mx-auto" src="images/healthy-lifestyle.png" alt="" />
+      <h3 class="is-size-4">Add a new habit below to begin!</h3>
+      <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
+    </section>
 {{/if}}
 
-
-<section class="column has-text-centered">
-  {{#unless loggedIn}}
-  <img class="image mx-auto" src="images/healthy-lifestyle.png" alt="" />
-  {{/unless}}
-  <h3 class="is-size-4">Add a new habit below to begin!</h3>
-  <i class="my-5 fa-solid fa-arrow-down-long is-size-3"></i>
-</section>
 <div class="modal addHabit center">
   <div class="modal-card">
     <header class="modal-card-head">
