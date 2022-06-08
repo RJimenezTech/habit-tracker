@@ -28,9 +28,7 @@
   </div>
   </div>
 {{#each user_habits as |habit|}}
-<article>
   {{> weekdisplay habit}}
-</article>
 {{/each}}
 {{else}}
 <section class="column has-text-centered">
@@ -99,7 +97,8 @@
 </div>
 <script src="/js/new-habit.js"></script>
 <script src="/js/dashboard.js"></script>
-<script src="/js/toggle-date.js"></script>
+{{!-- <script src="/js/toggle-date.js"></script> --}}
 <script src="/js/assignDates.js"></script>
-<script src="/js/logout.js"></script>
+{{!-- <script src="/js/logout.js"></script> --}}
 <script src="/js/weekdisplay.js"></script>
+<script src="/js/dateStorage.js"></script>
