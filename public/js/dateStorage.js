@@ -51,7 +51,7 @@ function updateHabitCookie(event) {
   console.log(current);
   if (current == "undefined") {
     setCookie(habit_id, date_id);
-    location.reload();
+    // location.reload();
   } else {
     let thisCookie = getCookie(habit_id).split(",");
     console.log(thisCookie);
@@ -61,13 +61,13 @@ function updateHabitCookie(event) {
       thisCookie.join(",");
       console.log(thisCookie);
       setCookie(habit_id, thisCookie);
-      location.reload();
+      //   location.reload();
     } else {
       thisCookie.push(date_id);
       thisCookie.toString();
       console.log(thisCookie);
       setCookie(habit_id, thisCookie);
-      location.reload();
+      //   location.reload();
     }
   }
 }
