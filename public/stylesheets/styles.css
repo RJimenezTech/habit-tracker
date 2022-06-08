@@ -1,47 +1,50 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .addBtn:hover {
-    transform: scale(1.15);
-    transition: 0.3s;
+  transform: scale(1.15);
+  transition: 0.3s;
 }
 
 .historyBtn:hover {
-    transform: scale(1.15);
-    transition: 0.3s;
+  transform: scale(1.15);
+  transition: 0.3s;
 }
 
 .homeBtn:hover {
-    transform: scale(1.15);
-    transition: 0.3s;
+  transform: scale(1.15);
+  transition: 0.3s;
 }
 
 .center {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
 
+.box {
+  width: 75vw;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
 
-.box{
-    width:75vw;
-    height:auto;
-    position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      padding: 10px;
-  }
+.habitweek {
+  margin: 25px;
+}

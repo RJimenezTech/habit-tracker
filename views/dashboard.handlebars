@@ -1,14 +1,43 @@
 {{#if user_habits.length}}
-<article>
-  <h2>Your Habits:</h2>
-  <ol>
+    <div class="habitweek is-size-3 is-mobile is-family-sans-serif" data-habit-id="{{id}}">
+                <div class="columns is-align-items-center has-background-primary-light">
+                    <div class="column habit is-one-third">
+                    <div class="icon-text icon-habit">
+
+                        <span>Your Habits</span>
+                      </div>
+                      </div>
+                    <div class="column day1">
+                        S
+                    </div>
+                    <div class="column day2">
+                        M
+                    </div>
+                    <div class="column day3">
+                       T
+                    </div>
+                    <div class="column day4">
+                        W
+                    </div>
+                    <div class="column day5">
+                        Th
+                    </div>
+                    <div class="column day6">
+                        F
+                    </div>
+                    <div class="column day7">
+                        S
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{#each user_habits as |habit|}}
-    <li>
+    <article>
       {{> weekdisplay habit}}
-    </li>
+    </article>
     {{/each}}
-  </ol>
-</article>
+
 {{/if}}
 
 
