@@ -14,6 +14,10 @@ html {
   transition: 0.3s;
 }
 
+.deleteBtn:hover {
+  transform: scale(1.15);
+}
+
 .historyBtn:hover {
   transform: scale(1.15);
   transition: 0.3s;
@@ -47,4 +51,12 @@ html {
 
 .date-box:hover {
   border: 1px solid hsl(0, 0%, 48%) !important;
+}
+
+.rounded {
+  border-radius: 10px !important;
+}
+
+.has-shadow {
+  box-shadow: 0 0 10px lightgrey !important;
 }

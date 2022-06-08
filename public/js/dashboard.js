@@ -21,7 +21,7 @@ openModal.addEventListener('click', () => {
 
 dateBox.forEach((box) => {
     box.addEventListener('click', () => {
-        box.classList.toggle('has-background-danger');
+        box.classList.toggle('has-background-success');
         box.classList.toggle('has-background-grey-light');
     });
 })
