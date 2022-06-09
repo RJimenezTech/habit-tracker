@@ -60,3 +60,13 @@ html {
 .has-shadow {
   box-shadow: 0 0 10px lightgrey !important;
 }
+
+@media screen and (max-width: 575px) {
+  .img-responsive {
+    height: 256px !important;
+    width: 256px !important;
+  }
+  .homepage {
+    flex-wrap: wrap !important;
+  }
+}
