@@ -16,7 +16,7 @@
   # Site 
   [Project Repo](https://github.com/RJimenezTech/habit-tracker.git)
 
-  [Project Heroku Website](https://jessiferizzo.github.io/Professional-README/)
+  [Project Heroku Website](https://fast-anchorage-73792.herokuapp.com/)
 
   ## Built With:
   Node, Express, Mysql2, Sequelize, Bcrypt, Express Handlebars, Express Session, Dotenv
@@ -30,7 +30,7 @@
 
   📷 ![gif of app]
   
-  🎥 [Video Link to Live Demo](https://www.youtube.com/watch?v=KhYwtb_8gLA)
+  🎥 [Video Link to Live Demo]
   
   ## Contributing
   contact us for contributions or collabs
