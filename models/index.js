@@ -8,9 +8,7 @@ User.hasMany(Habit, {
 
 Habit.belongsTo(User);
 
-Date.belongsTo(Habit, {
-  foreignKey: "id",
-});
+Date.belongsTo(Habit);
 
 // Date.belongsTo(User, {
 //   foreignKey: "id",
@@ -20,9 +18,7 @@ Date.belongsTo(Habit, {
 //   foreignKey: "user_id",
 // });
 
-Habit.hasMany(Date, {
-  foreignKey: "habit_id",
-});
+Habit.hasMany(Date);
 
 module.exports = {
   User,
