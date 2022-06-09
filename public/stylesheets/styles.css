@@ -87,6 +87,11 @@ footer {
   color: hsl(348, 100%, 61%) !important;
 }
 
+.img-bg {
+  opacity: 50%;
+  z-index: -1 !important;
+}
+
 @media screen and (max-width: 575px) {
   .img-responsive {
     height: 256px !important;
@@ -100,3 +105,4 @@ footer {
 .jessica {
   border: 0px;
 }
+
