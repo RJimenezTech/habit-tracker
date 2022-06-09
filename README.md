@@ -16,7 +16,7 @@
   # Site 
   [Project Repo](https://github.com/RJimenezTech/habit-tracker.git)
 
-  [Project Heroku Website](https://jessiferizzo.github.io/Professional-README/)
+  [Project Heroku Website](https://habitualtracker.herokuapp.com/)
 
   ## Built With:
   Node, Express, Mysql2, Sequelize, Bcrypt, Express Handlebars, Express Session, Dotenv
@@ -28,10 +28,24 @@
   # Usage
   First user must clone the repo, create a `.env` file with associated passwords, sign into `mysql` account, `source db/schema.sql` from `mysql`, return to terminal to run `npm run seeds`, then `npm start` to start up server. 
 
-  📷 ![gif of app]
+   📷 
+   ![gif of app](./public/images/habitual%20_%20Habit%20Tracker.gif)
   
-  🎥 [Video Link to Live Demo](https://www.youtube.com/watch?v=KhYwtb_8gLA)
+  At the homepage, user clicks `Login` and is presented a login page to resigster as a new user or log in to current account. 
   
+  ![homepage](./public/images/homepage.png)
+
+
+  User can create a new habit by clicking the `+` button and writing in a habit and selecting the associated category.
+
+  ![habitpage](./public/images/addhabit.png)
+
+  All of a user's habits will display and user can click the days in which they completed the habit and it will change to green to show the habit was completed for that day. 
+
+  ![weekdisplay](./public/images/weekpage.png)
+
+  Clicking `logout` returns user to the homepage and the data will save upon logging back in so user can keep tracking their habits daily.
+
   ## Contributing
   contact us for contributions or collabs
   
