@@ -38,4 +38,8 @@ router.get("/dashboard", (req, res) => {
     });
 });
 
+router.get("/settings", (req, res) => {
+  res.render("settings");
+});
+
 module.exports = router;
