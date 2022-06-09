@@ -91,6 +91,20 @@ footer {
   opacity: 50%;
   z-index: -1 !important;
 }
+.spin:hover {
+  animation: spin-animation 5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media screen and (max-width: 575px) {
   .img-responsive {
