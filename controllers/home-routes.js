@@ -39,7 +39,21 @@ router.get("/dashboard", (req, res) => {
 });
 
 router.get("/settings", (req, res) => {
-  res.render("settings");
+  User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    attributes: { exlcude: ["password"]}
+  })
+    .then((dbUserData) => {
+      const userID = dbUserData.id;
+      res.render("settings", { userID, loggedIn: true });
+      console.log(userID);
+    })
+  .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
