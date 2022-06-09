@@ -34,37 +34,24 @@ const sendWelcomeEmail = (userEmail) => {
   });
 };
 
-// async function sendUserDailyEmail() {
-//   let today = new Date();
-//   const dd = String(today.getDate()).padStart(2, "0");
-//   const mm = String(today.getMonth() + 1).padStart(2, "0");
-//   const yyyy = today.getFullYear();
-//   today = mm + "/" + dd + "/" + yyyy;
+const sendUnsubscribeEmail = (userEmail) => {
+  const mailOptions = {
+    from: "habitual2022@aol.com",
+    to: `${userEmail}`,
+    subject: "Unsubscribed Successfully",
+    text: `You have deleted your Habitual account! \n\n Sorry to see you go!`,
+  };
 
-//   const response = await fetch("/api/users", {
-//     method: "GET",
-//     headers: { "Content-Type": "application/json" },
-//   });
-
-//   response.forEach((user) => {
-//     const mailOptions = {
-//       from: "habitual2022@aol.com",
-//       to: `${user.email}`,
-//       subject: "Habitual Daily Recap - ${today}",
-//       text: `${user.habits.forEach(console.log(habits.description + "\n"))}`,
-//     };
-
-//     transporter.sendMail(mailOptions, function (error, info) {
-//       if (error) {
-//         console.log(error);
-//       } else {
-//         console.log("Email sent: " + info.response);
-//       }
-//     });
-//   });
-// }
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
+};
 
 module.exports = {
   sendWelcomeEmail,
-  // sendUserDailyEmail
+  sendUnsubscribeEmail,
 };
