@@ -14,6 +14,10 @@ html {
   transition: 0.3s;
 }
 
+.addHabit {
+  z-index: 9999 !important;
+}
+
 .deleteBtn:hover {
   transform: scale(1.15);
 }
@@ -58,5 +62,15 @@ html {
 }
 
 .has-shadow {
-  box-shadow: 0 0 10px lightgrey !important;
+  box-shadow: 0 0 10px grey !important;
+}
+
+@media screen and (max-width: 575px) {
+  .img-responsive {
+    height: 256px !important;
+    width: 256px !important;
+  }
+  .homepage {
+    flex-wrap: wrap !important;
+  }
 }
