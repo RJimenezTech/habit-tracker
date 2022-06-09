@@ -6,9 +6,7 @@ User.hasMany(Habit, {
   foreignKey: "user_id",
 });
 
-Habit.belongsTo(User, {
-  foreignKey: "user_id",
-});
+Habit.belongsTo(User);
 
 Date.belongsTo(Habit, {
   foreignKey: "id",
