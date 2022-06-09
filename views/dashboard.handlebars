@@ -1,6 +1,6 @@
 {{#if user_habits.length}}
 <div class="habitweek has-text-centered has-text-light my-6 m-5 is-size-5 has-shadow is-size-7-mobile" data-habit-id="{{id}}">
-    <div class="columns my-1 is-multiline is-mobile rounded has-background-info" style="outline:solid; outline-color:hsl(204, 71%, 39%);">
+  <div class="columns my-1 is-multiline has-shadow is-mobile rounded has-background-info" style="outline:solid; outline-color:hsl(204, 71%, 39%);">
     <div class="column is-flex is-justify-content-space-between is-align-items-center flex-direction-row has-text-centered habit is-one-third">
         <p class="is-size-6-mobile">Your Habits</p>
     </div>
@@ -26,7 +26,7 @@
       S
     </div>
   </div>
-  </div>
+</div>
 {{#each user_habits as |habit|}}
   {{> weekdisplay habit}}
 {{/each}}

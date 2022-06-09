@@ -16,23 +16,20 @@ async function deleteFormHandler() {
 }
 
 document.querySelectorAll('.deleteBtn').forEach(habit => {
+    let id = habit.getAttribute('data-habit-id');
     
-    habit.addEventListener('click', () => {
-        let id = habit.getAttribute('data-habit-id');
-        async function deleteFormHandler() {
+    async function deleteFormHandler() {
 
 
-            const response = await fetch(`/api/habits/${id}`, {
-                method: 'DELETE'
-            });
+        const response = await fetch(`/api/habits/${id}`, {
+            method: 'DELETE'
+        });
 
-            if (response.ok) {
-                document.location.replace('/dashboard/');
-            } else {
-                alert(response.statusText);
-            }
+        if (response.ok) {
+            document.location.replace('/dashboard/');
         }
-        habit.addEventListener('click', deleteFormHandler)
-    })
+    }
+    
+    habit.addEventListener('click', deleteFormHandler);
 
 })
