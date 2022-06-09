@@ -13,7 +13,8 @@ async function deleteAccountHandler() {
     });
 
     if (response.ok) {
-        document.location.replace('/');
+      document.location.replace('/');
+      logout();
     } else {
         alert(response.statusText);
     }
