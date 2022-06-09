@@ -1,15 +1,19 @@
 const router = require("express").Router();
 // const { response } = require("express");
 const { User, Habit, Date } = require("../models");
+const {
+  sendWelcomeEmail,
+  sendUnsubscribeEmail,
+} = require("../public/js/emails");
 
 router.get("/", (req, res) => {
   res.render("homepage");
 });
 
 router.get("/login", (req, res) => {
-  res.render('login', {
-    loggedIn: req.session.loggedIn
-});
+  res.render("login", {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/login', (req, res) => {
@@ -50,16 +54,17 @@ router.get("/dashboard", (req, res) => {
 router.get("/settings", (req, res) => {
   User.findOne({
     where: {
-      id: req.session.user_id
+      id: req.session.user_id,
     },
-    attributes: { exlcude: ["password"]}
+    attributes: { exlcude: ["password"] },
   })
     .then((dbUserData) => {
       const userID = dbUserData.id;
       res.render("settings", { userID, loggedIn: true });
       console.log(userID);
+      sendUnsubscribeEmail(dbUserData.email);
     })
-  .catch((err) => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
