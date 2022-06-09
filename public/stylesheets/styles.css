@@ -22,7 +22,7 @@ html {
   transform: scale(1.15);
 }
 
-.historyBtn:hover {
+.settingsBtn:hover {
   transform: scale(1.15);
   transition: 0.3s;
 }
