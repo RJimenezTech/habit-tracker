@@ -46,26 +46,21 @@ function updateHabitCookie(event) {
   let date_id = event.target.getAttribute("data-date-id");
   let habit_id = event.target.getAttribute("data-habit-id");
   let current = getCookie(habit_id);
-  console.log(habit_id);
 
-  console.log(current);
   if (current == "undefined") {
     setCookie(habit_id, date_id);
     // location.reload();
   } else {
     let thisCookie = getCookie(habit_id).split(",");
-    console.log(thisCookie);
     if (thisCookie.includes(date_id)) {
       const index = thisCookie.indexOf(date_id);
       thisCookie.splice(index, 1);
       thisCookie.join(",");
-      console.log(thisCookie);
       setCookie(habit_id, thisCookie);
       //   location.reload();
     } else {
       thisCookie.push(date_id);
       thisCookie.toString();
-      console.log(thisCookie);
       setCookie(habit_id, thisCookie);
       //   location.reload();
     }

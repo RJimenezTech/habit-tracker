@@ -15,9 +15,7 @@ function getCookie(cname) {
 
 function changeColor(element, habit_id) {
   let date_id = element.getAttribute("data-date-id");
-  console.log(date_id);
   let dates = getCookie(habit_id).split(",");
-  console.log(dates);
   if (dates.includes(date_id)) {
     element.setAttribute(
       "class",
@@ -30,7 +28,6 @@ function changeColor(element, habit_id) {
 
 function colorDates() {
   let dateBoxes = document.querySelectorAll(".date-box");
-  console.log(dateBoxes);
   dateBoxes.forEach((el) => changeColor(el, el.getAttribute("data-habit-id")));
 }
 
