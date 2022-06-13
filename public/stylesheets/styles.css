@@ -116,3 +116,8 @@ footer {
   }
 }
 
+.modal-card,
+.modal-content {
+  width: 75vw !important;
+  margin: 0px !important;
+}
