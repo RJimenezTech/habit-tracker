@@ -71,12 +71,19 @@ footer {
   padding: 10px;
 }
 
+/* .date-box {
+  box-sizing: border-box;
+  border-left: solid;
+  border-color: hsl(204, 48%, 50%);
+} */
+
 .date-box:hover {
   border: 1px solid hsl(0, 0%, 48%) !important;
 }
 
 .rounded {
   border-radius: 10px !important;
+  perspective: 1px !important;
 }
 
 .has-shadow {
@@ -120,4 +127,8 @@ footer {
 .modal-content {
   width: 75vw !important;
   margin: 0px !important;
+}
+
+.modal-card .modal-card-foot {
+  height: 3.5rem;
 }
