@@ -1,15 +1,19 @@
 <article>
   <div class="habitweek mx-5 my-6 is-size-6 has-shadow is-mobile">
     <div
-      class="columns is-multiline is-mobile rounded has-shadow has-background-info"
+      class="habit-category columns is-multiline is-mobile rounded has-shadow has-background-info"
+      data-cat="{{category}}"
     >
       <div
         class="column is-flex is-justify-content-space-between is-align-items-center flex-direction-row has-text-centered habit is-one-third-desktop is-one-third-tablet is-one-quarter-mobile"
         style="line-height:1;"
       >
-        <p class="is-size-5 is-size-7-mobile has-text-light">{{description}}</p>
+        <p
+          class="is-size-5 is-size-7-mobile has-text-dark"
+          data-cat="{{category}}"
+        >{{description}}</p>
         <i
-          class="deleteBtn p-2 is-size-5 is-size-6-mobile fa-solid fa-trash-can has-text-light is-clickable"
+          class="deleteBtn p-2 is-size-5 is-size-6-mobile fa-solid fa-trash-can has-text-grey is-clickable"
           data-habit-id="{{id}}"
         ></i>
       </div>
@@ -47,3 +51,4 @@
 {{! <img src="/images/healthy-lifestyle.png" class="center img-bg img-responsive" alt=""> }}
 
 <script src="/js/deleteHabit.js"></script>
+<script src="/js/categoryColor.js"></script>

@@ -16,13 +16,13 @@ router.get("/login", (req, res) => {
   });
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect("/dashboard");
     return;
   }
 
-  res.render('login');
+  res.render("login");
 });
 
 router.get("/dashboard", (req, res) => {
@@ -34,7 +34,7 @@ router.get("/dashboard", (req, res) => {
     include: [
       {
         model: Habit,
-        attributes: ["id", "description", "created_at"],
+        attributes: ["id", "description", "category", "created_at"],
       },
     ],
   })
